@@ -1,7 +1,7 @@
 {
   "name": "bim-thesis",
   "version": "0.1.0",
-  "homepage": ".",
+  "homepage": "https://nick-mako.github.io/vendo-bim",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
