@@ -28,6 +28,12 @@ https://your-app.com/vendo-bim/?fruit=kiwi&weather=bad&pid=Niklas
 
 - Platform: React (frontend), Qualtrics (survey integration)
 - Condition assignment via HTML parameters managed in Qualtrics
+- Deployed and hosted using GitHub Pages
+
+## Deployment
+
+The application is currently accessible at:
+[https://nick-mako.github.io/vendo-bim](https://nick-mako.github.io/vendo-bim)
 
 ## Getting Started
 
