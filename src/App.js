@@ -14,6 +14,7 @@ function App() {
   const useAlternativeReviews = queryParams.get("fruit") === "kiwi";
   const showWarningLabel = queryParams.get("weather") === "bad";
   const participantId = queryParams.get("pid") || "unknown"; // Get participant ID from URL
+  const basename = process.env.PUBLIC_URL;
 
   // Initialize GA only after consent
   const initializeGA = () => {
@@ -67,7 +68,7 @@ function App() {
   );
 
   return (
-    <Router>
+    <Router basename={basename}>
       <div className="App">
         <CookieConsent
           location="bottom"
