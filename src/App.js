@@ -13,8 +13,7 @@ function App() {
   const queryParams = new URLSearchParams(window.location.search);
   const useAlternativeReviews = queryParams.get("fruit") === "kiwi";
   const showWarningLabel = queryParams.get("weather") === "bad";
-  const participantId = queryParams.get("pid") || "unknown"; // Get participant ID from URL
-  const basename = process.env.PUBLIC_URL;
+  const participantId = queryParams.get("pid") || "unknown";
 
   // Initialize GA only after consent
   const initializeGA = () => {
@@ -68,7 +67,7 @@ function App() {
   );
 
   return (
-    <Router basename={basename}>
+    <Router>
       <div className="App">
         <CookieConsent
           location="bottom"
