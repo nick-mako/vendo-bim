@@ -25,7 +25,7 @@ function Product() {
 
   return (
     <div className="ui container">
-      <div className="ui grid">
+      <div className="ui stackable grid">
         <div className="ten wide column">
           <div
             className="ui basic segment center aligned"
