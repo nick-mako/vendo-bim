@@ -67,7 +67,7 @@ function App() {
   );
 
   return (
-    <Router>
+    <Router basename="/vendo-bim">
       <div className="App">
         <CookieConsent
           location="bottom"
