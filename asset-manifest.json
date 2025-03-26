@@ -1,0 +1,41 @@
+{
+  "files": {
+    "main.css": "/vendo-bim/static/css/main.7af66111.css",
+    "main.js": "/vendo-bim/static/js/main.dea53e09.js",
+    "static/js/453.20a0324b.chunk.js": "/vendo-bim/static/js/453.20a0324b.chunk.js",
+    "static/media/speaker-1.png": "/vendo-bim/static/media/speaker-1.6a312eddbf420ab45ab8.png",
+    "static/media/speaker-2.png": "/vendo-bim/static/media/speaker-2.fdad9fd27b9f218229f4.png",
+    "static/media/speaker-3.png": "/vendo-bim/static/media/speaker-3.daac3ead3c82915417e9.png",
+    "static/media/speaker-4.png": "/vendo-bim/static/media/speaker-4.a0a95bbfbdb6ae427ff6.png",
+    "static/media/Lato-Italic.woff": "/vendo-bim/static/media/Lato-Italic.e67e575e2b5ee2fe795c.woff",
+    "static/media/Lato-BoldItalic.woff": "/vendo-bim/static/media/Lato-BoldItalic.2e72ab08f6b108d7eef4.woff",
+    "static/media/Lato-Bold.woff": "/vendo-bim/static/media/Lato-Bold.497f04acb55a3d00dfa3.woff",
+    "static/media/Lato-Regular.woff": "/vendo-bim/static/media/Lato-Regular.2fee7146711cc5c3dd41.woff",
+    "static/media/Lato-Italic.woff2": "/vendo-bim/static/media/Lato-Italic.978bab8c991c4aab7d12.woff2",
+    "static/media/Lato-BoldItalic.woff2": "/vendo-bim/static/media/Lato-BoldItalic.330c031b5bb2b88046da.woff2",
+    "static/media/Lato-Bold.woff2": "/vendo-bim/static/media/Lato-Bold.f846fe49520f593c671e.woff2",
+    "static/media/Lato-Regular.woff2": "/vendo-bim/static/media/Lato-Regular.43bc627160e4b7a28fbc.woff2",
+    "static/media/icons.woff": "/vendo-bim/static/media/icons.eeccf4f66002c6f2ba24.woff",
+    "static/media/brand-icons.woff": "/vendo-bim/static/media/brand-icons.2285773e6b4b172f07d9.woff",
+    "static/media/icons.woff2": "/vendo-bim/static/media/icons.1551f4f60c37af51121f.woff2",
+    "static/media/brand-icons.woff2": "/vendo-bim/static/media/brand-icons.d878b0a6a1144760244f.woff2",
+    "static/media/LatoLatin-Italic.woff": "/vendo-bim/static/media/LatoLatin-Italic.720116e2e1990835048b.woff",
+    "static/media/LatoLatin-BoldItalic.woff": "/vendo-bim/static/media/LatoLatin-BoldItalic.9bcbc975bb95fcc7bdbb.woff",
+    "static/media/LatoLatin-Regular.woff": "/vendo-bim/static/media/LatoLatin-Regular.4a38ade2ce0988376595.woff",
+    "static/media/LatoLatin-Bold.woff": "/vendo-bim/static/media/LatoLatin-Bold.8525916133d63443ee21.woff",
+    "static/media/LatoLatin-Italic.woff2": "/vendo-bim/static/media/LatoLatin-Italic.bb932b70aeb593860dfe.woff2",
+    "static/media/LatoLatin-BoldItalic.woff2": "/vendo-bim/static/media/LatoLatin-BoldItalic.e83aa39dd6147ef2b674.woff2",
+    "static/media/LatoLatin-Regular.woff2": "/vendo-bim/static/media/LatoLatin-Regular.b0a598e91a6ca2310dc9.woff2",
+    "static/media/LatoLatin-Bold.woff2": "/vendo-bim/static/media/LatoLatin-Bold.710a16565cff7fb7bf78.woff2",
+    "static/media/outline-icons.woff": "/vendo-bim/static/media/outline-icons.bb58e57c48a3e911f15f.woff",
+    "static/media/outline-icons.woff2": "/vendo-bim/static/media/outline-icons.7a3337626410ca2f4071.woff2",
+    "index.html": "/vendo-bim/index.html",
+    "main.7af66111.css.map": "/vendo-bim/static/css/main.7af66111.css.map",
+    "main.dea53e09.js.map": "/vendo-bim/static/js/main.dea53e09.js.map",
+    "453.20a0324b.chunk.js.map": "/vendo-bim/static/js/453.20a0324b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7af66111.css",
+    "static/js/main.dea53e09.js"
+  ]
+}
