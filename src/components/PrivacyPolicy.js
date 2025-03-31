@@ -2,7 +2,7 @@ import React from "react";
 
 const PrivacyPolicy = () => {
   return (
-    <div className="ui container">
+    <div className="ui segment">
       <h1>Privacy Policy</h1>
       <p>Last updated: March 23, 2025</p>
       <p>

@@ -98,12 +98,12 @@ function Reviews({ useAlternativeReviews = false, showWarningLabel = false }) {
         </span>
       </div>
       <div className="ui bottom attached segment">
-        <div className="ui large comments">
+        <div className="ui comments">
           {randomizedReviews.map((review) => (
             <div
               className="comment"
               key={review.id}
-              style={{ marginTop: "2em" }}
+              style={{ marginTop: "1.5em" }}
             >
               <a className="avatar">
                 <img src={review.avatar} alt={`${review.author} avatar`} />
