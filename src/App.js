@@ -7,7 +7,7 @@ import PrivacyPolicy from "./components/PrivacyPolicy";
 import CookieConsent from "react-cookie-consent";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import ReactGA from "react-ga4";
-import { useEffect } from "react";
+import { useEffect, useCallback } from "react";
 
 function App() {
   const queryParams = new URLSearchParams(window.location.search);
@@ -16,7 +16,7 @@ function App() {
   const participantId = queryParams.get("pid") || "unknown";
 
   // Initialize GA only after consent
-  const initializeGA = () => {
+  const initializeGA = useCallback(() => {
     ReactGA.initialize(process.env.REACT_APP_GA_TRACKING_ID);
     ReactGA.set({
       participant_id: participantId,
@@ -27,7 +27,7 @@ function App() {
       action: "Start",
       label: `Participant ${participantId}`,
     });
-  };
+  }, [participantId]);
 
   const handleAccept = () => {
     // Initialize GA only after consent is given
@@ -53,7 +53,7 @@ function App() {
     if (consentCookie && consentCookie.split("=")[1] === "true") {
       initializeGA();
     }
-  }, []);
+  }, [initializeGA]); // Add initializeGA to the dependency array
 
   const MainContent = () => (
     <>

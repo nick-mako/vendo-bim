@@ -78,7 +78,7 @@ function Reviews({ useAlternativeReviews = false, showWarningLabel = false }) {
         <h2 className="ui header">Customer Reviews (5)</h2>
 
         {showWarningLabel && (
-          <div className="ui icon warning message">
+          <div className="ui floating icon warning message">
             <i className="exclamation triangle icon"></i>
             <div className="content">
               <div className="header">AI-Generated Reviews</div>
