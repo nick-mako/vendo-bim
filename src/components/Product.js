@@ -34,7 +34,7 @@ function Product() {
             {/* Main product image - contained with max-height */}
             <div
               style={{
-                maxHeight: "600px",
+                maxHeight: "550px",
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",

@@ -7,7 +7,7 @@ function Reviews({ useAlternativeReviews = false, showWarningLabel = false }) {
   const [randomizedReviews, setRandomizedReviews] = useState([]);
 
   // Choose which set of reviews to use as the source
-  const sourceReviews = useAlternativeReviews ? human_reviews : ai_reviews;
+  const sourceReviews = useAlternativeReviews ? ai_reviews : human_reviews;
 
   useEffect(() => {
     // Generate a unique key for this set of reviews based on which set we're using
@@ -97,7 +97,7 @@ function Reviews({ useAlternativeReviews = false, showWarningLabel = false }) {
         </span>
       </div>
       <div className="ui bottom attached segment">
-        <div className="ui comments">
+        <div className="ui large comments">
           {randomizedReviews.map((review) => (
             <div
               className="comment"

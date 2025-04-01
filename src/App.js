@@ -75,20 +75,21 @@ function App() {
           declineButtonText="Decline"
           enableDeclineButton
           cookieName="research_consent"
+          overlay="true"
           onAccept={handleAccept}
           onDecline={handleDecline}
-          style={{ background: "#2B373B" }}
+          style={{ background: "#2B373B", fontSize: "18px", padding: "30px" }}
           buttonStyle={{
-            background: "#4e503b",
+            background: "#757575",
             color: "white",
-            fontSize: "13px",
+            fontSize: "18px",
             borderRadius: "3px",
             padding: "5px 15px",
           }}
           declineButtonStyle={{
-            background: "#757575",
+            background: "#4e503b",
             color: "white",
-            fontSize: "13px",
+            fontSize: "18px",
             borderRadius: "3px",
             padding: "5px 15px",
           }}
