@@ -42,7 +42,7 @@ export const human_reviews = [
     author: "Jordan Smith",
     avatar: "https://ui-avatars.com/api/?name=Felix&background=random",
     rating: 1,
-    text: "The speakers are great, but the seller's delivery service is horrible. They were in transit from the warehouse for 2 weeks. They don't answer questions or make adjustments; you have to call for hours. They have a 5-day consideration period for each issue, but my request was processed in 10 days. I hope the seller stops working with this shipping company and instead sends it via Russian Mail, where you can safely pick it up.",
+    text: "The speakers are great, but the seller's delivery service is horrible. They were in transit from the warehouse for 2 weeks. They don't answer questions or make adjustments; you have to call for hours. They have a 5-day consideration period for each issue, but my request was processed in 10 days. I hope the seller stops working with this shipping company and instead sends it via local mail, where you can safely pick it up.",
   },
 ];
 
