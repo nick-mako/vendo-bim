@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/vendo-bim/static/css/main.7af66111.css",
-    "main.js": "/vendo-bim/static/js/main.499b01db.js",
+    "main.js": "/vendo-bim/static/js/main.c44d03b3.js",
     "static/js/453.20a0324b.chunk.js": "/vendo-bim/static/js/453.20a0324b.chunk.js",
     "static/media/speaker-1.png": "/vendo-bim/static/media/speaker-1.6a312eddbf420ab45ab8.png",
     "static/media/speaker-2.png": "/vendo-bim/static/media/speaker-2.fdad9fd27b9f218229f4.png",
@@ -31,11 +31,11 @@
     "static/media/outline-icons.woff2": "/vendo-bim/static/media/outline-icons.7a3337626410ca2f4071.woff2",
     "index.html": "/vendo-bim/index.html",
     "main.7af66111.css.map": "/vendo-bim/static/css/main.7af66111.css.map",
-    "main.499b01db.js.map": "/vendo-bim/static/js/main.499b01db.js.map",
+    "main.c44d03b3.js.map": "/vendo-bim/static/js/main.c44d03b3.js.map",
     "453.20a0324b.chunk.js.map": "/vendo-bim/static/js/453.20a0324b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7af66111.css",
-    "static/js/main.499b01db.js"
+    "static/js/main.c44d03b3.js"
   ]
 }
