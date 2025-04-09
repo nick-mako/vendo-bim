@@ -3,17 +3,19 @@ import Header from "./components/Header";
 import Product from "./components/Product";
 import ProductDetails from "./components/ProductDetails";
 import Reviews from "./components/Reviews";
-import PrivacyPolicy from "./components/PrivacyPolicy";
+import PrivacyPolicyModal from "./components/PrivacyPolicyModal";
 import CookieConsent from "react-cookie-consent";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ReactGA from "react-ga4";
-import { useEffect, useCallback } from "react";
+import { useEffect, useCallback, useState } from "react";
 
 function App() {
   const queryParams = new URLSearchParams(window.location.search);
   const useAlternativeReviews = queryParams.get("fruit") === "kiwi";
   const showWarningLabel = queryParams.get("weather") === "bad";
   const participantId = queryParams.get("pid") || "unknown";
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   // Initialize GA only after consent
   const initializeGA = useCallback(() => {
@@ -98,19 +100,27 @@ function App() {
           This website uses cookies to measure how users interact with our
           interface for research purposes. Your data will only be used
           anonymously for academic research.{" "}
-          <Link
-            to="/privacy"
-            style={{ color: "white", textDecoration: "underline" }}
+          <span
+            onClick={() => setIsModalOpen(true)}
+            style={{
+              color: "white",
+              textDecoration: "underline",
+              cursor: "pointer",
+            }}
           >
             Learn more
-          </Link>
+          </span>
         </CookieConsent>
+
+        <PrivacyPolicyModal
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+        />
 
         <div className="ui container" style={{ marginTop: "1em" }}>
           <Header />
           <Routes>
             <Route path="/" element={<MainContent />} />
-            <Route path="/privacy" element={<PrivacyPolicy />} />
           </Routes>
         </div>
 

@@ -2,8 +2,7 @@ import React from "react";
 
 const PrivacyPolicy = () => {
   return (
-    <div className="ui segment">
-      <h1>Privacy Policy</h1>
+    <>
       <p>Last updated: March 23, 2025</p>
       <p>
         This Privacy Policy describes Our policies and procedures on the
@@ -501,7 +500,7 @@ const PrivacyPolicy = () => {
       <ul>
         <li>By email: 676726nm@eur.nl</li>
       </ul>
-    </div>
+    </>
   );
 };
 
