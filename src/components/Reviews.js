@@ -81,10 +81,8 @@ function Reviews({ useAlternativeReviews = false, showWarningLabel = false }) {
           <div className="ui floating icon warning message">
             <i className="exclamation triangle icon"></i>
             <div className="content">
-              <div className="header">
-                For your protection, Vendo has identiﬁed and removed several
-                possible AI-generated reviews.
-              </div>
+              <div className="header">Some Reviews May Be AI-Generated</div>
+              <p>This warning is displayed for your protection.</p>
             </div>
           </div>
         )}
