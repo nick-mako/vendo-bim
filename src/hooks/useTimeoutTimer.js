@@ -26,7 +26,7 @@ const useTimeoutTimer = (initialTime = 2) => {
 
     const newTimer = setTimeout(() => {
       setShowModal(true);
-    }, 30 * 1000); // 1 minute extension
+    }, 60 * 1000); // 1 minute extension
 
     setTimer(newTimer);
   };
