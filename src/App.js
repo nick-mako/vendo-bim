@@ -4,6 +4,7 @@ import Product from "./components/Product";
 import ProductDetails from "./components/ProductDetails";
 import Reviews from "./components/Reviews";
 import PrivacyPolicyModal from "./components/PrivacyPolicyModal";
+import TimeoutModal from "./components/TimeoutModal";
 import CookieConsent from "react-cookie-consent";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ReactGA from "react-ga4";
@@ -116,6 +117,7 @@ function App() {
           isOpen={isModalOpen}
           onClose={() => setIsModalOpen(false)}
         />
+        <TimeoutModal />
 
         <div className="ui container" style={{ marginTop: "1em" }}>
           <Header />

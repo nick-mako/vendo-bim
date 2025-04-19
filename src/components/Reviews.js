@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { human_reviews, ai_reviews, review_dates } from "../data/reviewData";
 import Cookies from "js-cookie";
+import { Pagination } from "semantic-ui-react";
 
 function Reviews({ useAlternativeReviews = false, showWarningLabel = false }) {
   // State to hold the randomized reviews
@@ -124,15 +125,15 @@ function Reviews({ useAlternativeReviews = false, showWarningLabel = false }) {
           className="ui center aligned container"
           style={{ marginTop: "2em" }}
         >
-          <div className="ui pagination menu">
-            <a className="disabled item">
-              <i className="chevron left icon"></i>
-            </a>
-            <a className="active item">1</a>
-            <a className="disabled item">
-              <i className="chevron right icon"></i>
-            </a>
-          </div>
+          <Pagination
+            defaultActivePage={1}
+            totalPages={31}
+            firstItem={null}
+            lastItem={null}
+            boundaryRange={0}
+            siblingRange={1}
+            disabled
+          />
         </div>
       </div>
     </>

@@ -108,8 +108,8 @@ const PrivacyPolicy = () => {
           <p>
             <strong>Website</strong> refers to RSM Experiment, accessible from{" "}
             <a
-              href="example.com"
-              rel="external nofollow noopener"
+              href="https://nick-mako.github.io/vendo-bim/"
+              rel="external nofollow noopener noreferrer"
               target="_blank"
             >
               example.com

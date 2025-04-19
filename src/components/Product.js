@@ -87,7 +87,7 @@ function Product() {
               <i className="star icon active"></i>
               <i className="star icon"></i>
             </div>
-            <p>(4.0) 5 Reviews</p>
+            <p>(4.0) 151 Reviews</p>
             <div className="ui divider"></div>
             <button
               className="ui large teal fluid labeled icon button"
