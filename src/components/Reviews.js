@@ -76,7 +76,7 @@ function Reviews({ useAlternativeReviews = false, showWarningLabel = false }) {
   return (
     <>
       <div class="ui top attached segment">
-        <h2 className="ui header">Customer Reviews (5)</h2>
+        <h2 className="ui header">Customer Reviews (151)</h2>
 
         {showWarningLabel && (
           <div className="ui floating icon warning message">
