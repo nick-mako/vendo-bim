@@ -5,7 +5,7 @@ import speaker2 from "../assets/images/speaker-2.png";
 import speaker3 from "../assets/images/speaker-3.png";
 import speaker4 from "../assets/images/speaker-4.png";
 
-function Product() {
+function Product({ onReviewsClick }) {
   const { trackEvent } = useAnalytics();
   const productImages = [speaker1, speaker2, speaker3, speaker4];
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -80,14 +80,20 @@ function Product() {
             <h1 className="ui header">StormBox 2 Portable Bluetooth Speaker</h1>
             <div className="ui divider"></div>
             <div className="ui massive header">$65.00</div>
-            <div className="ui rating disabled">
+            <div
+              onClick={onReviewsClick}
+              style={{ cursor: "pointer" }}
+              className="ui rating disabled"
+            >
               <i className="star icon active"></i>
               <i className="star icon active"></i>
               <i className="star icon active"></i>
               <i className="star icon active"></i>
               <i className="star icon"></i>
             </div>
-            <p>(4.0) 151 Reviews</p>
+            <p onClick={onReviewsClick} style={{ cursor: "pointer" }}>
+              (4.0) 151 Reviews
+            </p>
             <div className="ui divider"></div>
             <button
               className="ui large teal fluid labeled icon button"

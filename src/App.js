@@ -8,13 +8,14 @@ import TimeoutModal from "./components/TimeoutModal";
 import CookieConsent from "react-cookie-consent";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ReactGA from "react-ga4";
-import { useEffect, useCallback, useState } from "react";
+import { useEffect, useCallback, useState, useRef } from "react";
 
 function App() {
   const queryParams = new URLSearchParams(window.location.search);
   const useAlternativeReviews = queryParams.get("fruit") === "kiwi";
   const showWarningLabel = queryParams.get("weather") === "bad";
   const participantId = queryParams.get("pid") || "unknown";
+  const reviewsRef = useRef(null);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -58,13 +59,21 @@ function App() {
     }
   }, [initializeGA]); // Add initializeGA to the dependency array
 
+  const scrollToReviews = () => {
+    reviewsRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
+
   const MainContent = () => (
     <>
-      <Product />
+      <Product onReviewsClick={scrollToReviews} />
       <ProductDetails />
       <Reviews
         useAlternativeReviews={useAlternativeReviews}
         showWarningLabel={showWarningLabel}
+        ref={reviewsRef}
       />
     </>
   );

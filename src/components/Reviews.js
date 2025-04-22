@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, forwardRef } from "react";
 import { human_reviews, ai_reviews, review_dates } from "../data/reviewData";
 import Cookies from "js-cookie";
 import { Pagination } from "semantic-ui-react";
 
-function Reviews({ useAlternativeReviews = false, showWarningLabel = false }) {
+const Reviews = forwardRef(function Reviews(
+  { useAlternativeReviews = false, showWarningLabel = false },
+  ref,
+) {
   // State to hold the randomized reviews
   const [randomizedReviews, setRandomizedReviews] = useState([]);
 
@@ -75,7 +78,7 @@ function Reviews({ useAlternativeReviews = false, showWarningLabel = false }) {
 
   return (
     <>
-      <div class="ui top attached segment">
+      <div ref={ref} class="ui top attached segment">
         <h2 className="ui header">Customer Reviews (151)</h2>
 
         {showWarningLabel && (
@@ -138,6 +141,6 @@ function Reviews({ useAlternativeReviews = false, showWarningLabel = false }) {
       </div>
     </>
   );
-}
+});
 
 export default Reviews;

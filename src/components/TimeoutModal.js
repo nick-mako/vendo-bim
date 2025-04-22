@@ -3,7 +3,7 @@ import { Modal, Button } from "semantic-ui-react";
 import useTimeoutTimer from "../hooks/useTimeoutTimer";
 
 const TimeoutModal = () => {
-  const { showModal, extendTime } = useTimeoutTimer(2.25);
+  const { showModal, extendTime } = useTimeoutTimer(2.1);
   const [closeFailed, setCloseFailed] = useState(false);
 
   const handleReturnToSurvey = () => {
@@ -40,7 +40,7 @@ const TimeoutModal = () => {
       <Modal.Actions>
         <Button
           secondary
-          content="Extend Time"
+          content="Extend Time (1 minute)"
           labelPosition="right"
           icon="clock"
           onClick={extendTime}
