@@ -27,6 +27,7 @@ function App() {
 
     ReactGA.gtag("set", "user_properties", {
       participant_id: participantId,
+      user_id: participantId,
     });
 
     ReactGA.set({
