@@ -21,11 +21,20 @@ function App() {
 
   // Initialize GA only after consent
   const initializeGA = useCallback(() => {
-    ReactGA.initialize(process.env.REACT_APP_GA_TRACKING_ID);
+    ReactGA.initialize(process.env.REACT_APP_GA_TRACKING_ID, {
+      gtagOptions: { send_page_view: false },
+    });
+
+    ReactGA.gtag("set", "user_properties", {
+      participant_id: participantId,
+    });
+
     ReactGA.set({
       participant_id: participantId,
-      user_id: participantId,
     });
+
+    ReactGA.send({ hitType: "pageview" });
+
     ReactGA.event({
       category: "Session",
       action: "Start",
