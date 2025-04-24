@@ -1,22 +1,22 @@
-import { useCallback } from "react";
-import ReactGA from "react-ga4";
+import { useEffect } from "react";
+import { analyticsService } from "../services/analyticsService";
 
-export const useAnalytics = () => {
+export const useAnalytics = (participantId) => {
+  useEffect(() => {
+    analyticsService.setParticipantId(participantId);
+  }, [participantId]);
+
   const hasConsent = () => {
     return document.cookie
       .split("; ")
       .some((row) => row.startsWith("research_consent=true"));
   };
 
-  const trackEvent = useCallback((category, action, label = null) => {
+  const trackEvent = async (category, action) => {
     if (hasConsent()) {
-      ReactGA.event({
-        category,
-        action,
-        label,
-      });
+      await analyticsService.trackEvent(category, action);
     }
-  }, []);
+  };
 
   return { trackEvent };
 };

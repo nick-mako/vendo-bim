@@ -7,66 +7,30 @@ import PrivacyPolicyModal from "./components/PrivacyPolicyModal";
 import TimeoutModal from "./components/TimeoutModal";
 import CookieConsent from "react-cookie-consent";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import ReactGA from "react-ga4";
-import { useEffect, useCallback, useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
+import { analyticsService } from "./services/analyticsService";
+import { useAnalytics } from "./hooks/useAnalytics";
 
 function App() {
   const queryParams = new URLSearchParams(window.location.search);
   const useAlternativeReviews = queryParams.get("fruit") === "kiwi";
   const showWarningLabel = queryParams.get("weather") === "bad";
   const participantId = queryParams.get("pid") || "unknown";
+  const { trackEvent } = useAnalytics(participantId);
   const reviewsRef = useRef(null);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  // Initialize GA only after consent
-  const initializeGA = useCallback(() => {
-    ReactGA.initialize(process.env.REACT_APP_GA_TRACKING_ID, {
-      gtagOptions: { send_page_view: false },
-    });
-
-    ReactGA.gtag("set", "user_properties", {
-      participant_id: participantId,
-    });
-
-    ReactGA.set({
-      participant_id: participantId,
-    });
-
-    ReactGA.send({ hitType: "pageview" });
-
-    ReactGA.event({
-      category: "Session",
-      action: "Start",
-      label: `Participant ${participantId}`,
-    });
-  }, [participantId]);
+  const [hasReachedReviews, setHasReachedReviews] = useState(false);
 
   const handleAccept = () => {
-    // Initialize GA only after consent is given
-    initializeGA();
-    ReactGA.event({
-      category: "Cookie Consent",
-      action: "Accept",
-      label: `Participant ${participantId}`,
-    });
+    trackEvent("Cookie Consent", "Accept");
+    trackEvent("Session", "Start");
   };
 
   const handleDecline = () => {
     // We only log the decline without initializing GA
     console.log("Consent declined - no tracking initialized");
   };
-
-  // Check if consent was previously given (stored in cookie)
-  useEffect(() => {
-    const consentCookie = document.cookie
-      .split("; ")
-      .find((row) => row.startsWith("research_consent="));
-
-    if (consentCookie && consentCookie.split("=")[1] === "true") {
-      initializeGA();
-    }
-  }, [initializeGA]); // Add initializeGA to the dependency array
 
   const scrollToReviews = () => {
     reviewsRef.current?.scrollIntoView({
@@ -78,7 +42,7 @@ function App() {
   const MainContent = () => (
     <>
       <Product onReviewsClick={scrollToReviews} />
-      <ProductDetails />
+      <ProductDetails participantId={participantId} />
       <Reviews
         useAlternativeReviews={useAlternativeReviews}
         showWarningLabel={showWarningLabel}
@@ -86,6 +50,67 @@ function App() {
       />
     </>
   );
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!hasReachedReviews && reviewsRef.current) {
+        const reviewsPosition = reviewsRef.current.getBoundingClientRect().bottom;
+        const windowHeight = window.innerHeight;
+
+        if (reviewsPosition <= windowHeight) {
+          setHasReachedReviews(true);
+          trackEvent("Scroll", "Reached Reviews Section");
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [hasReachedReviews, trackEvent]);
+
+  // Initialize analytics once
+  useEffect(() => {
+    analyticsService.setParticipantId(participantId);
+  }, [participantId]);
+
+  // Add this effect after your other useEffect hooks
+  useEffect(() => {
+    const handleBeforeUnload = async (event) => {
+      // Standard tracking attempt
+      trackEvent("Session", "End");
+
+      // Fallback direct Supabase call
+      try {
+        // Using fetch with keepalive to ensure the request completes
+        await fetch(process.env.REACT_APP_SUPABASE_URL + '/rest/v1/analytics_events', {
+          method: 'POST',
+          headers: {
+            'apikey': process.env.REACT_APP_SUPABASE_ANON_KEY,
+            'Content-Type': 'application/json',
+            'Prefer': 'return=minimal'
+          },
+          body: JSON.stringify({
+            category: "Session",
+            action: "End",
+            participant_id: participantId,
+            created_at: new Date().toISOString()
+          }),
+          keepalive: true
+        });
+      } catch (error) {
+        console.error('Failed to send session end event:', error);
+      }
+
+      // Show a confirmation dialog if needed
+      event.preventDefault();
+      return (event.returnValue = '');
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+    
+    // Cleanup
+    return () => window.removeEventListener("beforeunload", handleBeforeUnload);
+  }, [trackEvent, participantId]);
 
   return (
     <Router basename="/vendo-bim">

@@ -27,8 +27,18 @@ https://your-app.com/vendo-bim/?fruit=kiwi&weather=bad&pid=Niklas
 ## Technical Implementation
 
 - Platform: React (frontend), Qualtrics (survey integration)
+- Analytics: Supabase
 - Condition assignment via HTML parameters managed in Qualtrics
 - Deployed and hosted using GitHub Pages
+
+### Environment Setup
+
+Create a `.env` file in the root directory with:
+
+```
+REACT_APP_SUPABASE_URL=your_supabase_url
+REACT_APP_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
 
 ## Deployment
 

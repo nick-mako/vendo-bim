@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useAnalytics } from "../hooks/useAnalytics";
 
-function ProductDetails() {
+function ProductDetails({ participantId }) {
   const [isDescOpen, setIsDescOpen] = useState(true);
   const [isSpecsOpen, setIsSpecsOpen] = useState(false);
-  const { trackEvent } = useAnalytics();
+  const { trackEvent } = useAnalytics(participantId);
 
   const handleDescriptionToggle = () => {
     const newState = !isDescOpen;
@@ -12,7 +12,6 @@ function ProductDetails() {
     trackEvent(
       "Product Details",
       newState ? "Description Opened" : "Description Closed",
-      "Product Description Section",
     );
   };
 
@@ -22,7 +21,6 @@ function ProductDetails() {
     trackEvent(
       "Product Details",
       newState ? "Specifications Opened" : "Specifications Closed",
-      "Product Specifications Section",
     );
   };
 

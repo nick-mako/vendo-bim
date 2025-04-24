@@ -1,26 +1,25 @@
 import React, { useState } from "react";
-import { useAnalytics } from "../hooks/useAnalytics";
+import { analyticsService } from "../services/analyticsService";
 import speaker1 from "../assets/images/speaker-1.png";
 import speaker2 from "../assets/images/speaker-2.png";
 import speaker3 from "../assets/images/speaker-3.png";
 import speaker4 from "../assets/images/speaker-4.png";
 
 function Product({ onReviewsClick }) {
-  const { trackEvent } = useAnalytics();
   const productImages = [speaker1, speaker2, speaker3, speaker4];
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const handleImageClick = (index) => {
     setCurrentImageIndex(index);
-    trackEvent("Product", "Image View", `Image ${index + 1}`);
+    analyticsService.trackEvent("Product", `View Image ${index + 1}`);
   };
 
   const handleBuyNow = () => {
-    trackEvent("Purchase", "Buy Now Click", "StormBox 2 Speaker");
+    analyticsService.trackEvent("Purchase", "Buy Now Click");
   };
 
   const handleAddToCart = () => {
-    trackEvent("Purchase", "Add to Cart Click", "StormBox 2 Speaker");
+    analyticsService.trackEvent("Purchase", "Add to Cart Click");
   };
 
   return (
