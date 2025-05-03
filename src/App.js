@@ -5,11 +5,13 @@ import ProductDetails from "./components/ProductDetails";
 import Reviews from "./components/Reviews";
 import PrivacyPolicyModal from "./components/PrivacyPolicyModal";
 import TimeoutModal from "./components/TimeoutModal";
-import CookieConsent from "react-cookie-consent";
+import CookieConsent, { getCookieConsentValue } from "react-cookie-consent";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState, useRef, useEffect } from "react";
 import { analyticsService } from "./services/analyticsService";
 import { useAnalytics } from "./hooks/useAnalytics";
+import TaskDescriptionModal from "./components/TaskDescriptionModal";
+import TaskReminderButton from "./components/TaskReminderButton";
 
 function App() {
   const queryParams = new URLSearchParams(window.location.search);
@@ -21,10 +23,14 @@ function App() {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [hasReachedReviews, setHasReachedReviews] = useState(false);
+  const [isTaskModalOpen, setIsTaskModalOpen] = useState(false);
+  const [hasAcceptedCookies, setHasAcceptedCookies] = useState(false);
 
   const handleAccept = () => {
     trackEvent("Cookie Consent", "Accept");
     trackEvent("Session", "Start");
+    setHasAcceptedCookies(true);
+    setIsTaskModalOpen(true);
   };
 
   const handleDecline = () => {
@@ -112,6 +118,14 @@ function App() {
     return () => window.removeEventListener("beforeunload", handleBeforeUnload);
   }, [trackEvent, participantId]);
 
+  // Add this effect to check cookie consent on mount
+  useEffect(() => {
+    const cookieConsent = getCookieConsentValue("research_consent");
+    if (cookieConsent === "true") {
+      setHasAcceptedCookies(true);
+    }
+  }, []);
+
   return (
     <Router basename="/vendo-bim">
       <div className="App">
@@ -172,6 +186,16 @@ function App() {
         <div className="ui container fluid" style={{ marginTop: "2em" }}>
           <Footer />
         </div>
+
+        <TaskDescriptionModal
+          isOpen={isTaskModalOpen}
+          onClose={() => setIsTaskModalOpen(false)}
+        />
+        {hasAcceptedCookies && (
+          <TaskReminderButton
+            onClick={() => setIsTaskModalOpen(true)}
+          />
+        )}
       </div>
     </Router>
   );

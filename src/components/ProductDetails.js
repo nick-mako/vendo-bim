@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useAnalytics } from "../hooks/useAnalytics";
 
 function ProductDetails({ participantId }) {
-  const [isDescOpen, setIsDescOpen] = useState(true);
+  const [isDescOpen, setIsDescOpen] = useState(false);
   const [isSpecsOpen, setIsSpecsOpen] = useState(false);
   const { trackEvent } = useAnalytics(participantId);
 

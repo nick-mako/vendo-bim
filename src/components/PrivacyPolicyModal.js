@@ -12,7 +12,7 @@ const PrivacyPolicyModal = ({ isOpen, onClose }) => {
         <PrivacyPolicy />
       </Modal.Content>
       <Modal.Actions>
-        <button className="ui primary large fluid button" onClick={onClose}>
+        <button className="ui primary teal large fluid button" onClick={onClose}>
           Close
         </button>
       </Modal.Actions>
