@@ -5,7 +5,7 @@ const TaskReminderButton = ({ onClick }) => {
   return (
     <Button
       circular
-      icon="tasks"
+      icon="question"
       size="massive"
       teal
       primary
