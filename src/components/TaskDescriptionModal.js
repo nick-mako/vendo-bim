@@ -18,7 +18,7 @@ const TaskDescriptionModal = ({ isOpen, onClose }) => {
             <li>Seller and platform information</li>
           </ul>
           
-          <p>After reviewing the page, you will be asked to share your overall impressions and answer questions regarding your evaluation of the product and the information you have seen.</p>
+          <p>After reviewing the page, you will be asked to answer questions about the reviews, the product, and the information presented.</p>
         </div>
       </Modal.Content>
       <Modal.Actions>
